@@ -11,13 +11,18 @@
     group模式下不设置section view 的高度 header view不显示 但footer view 有一定的高度显示
 
 2、section header & footer
+
     section view的高度与view分离
-        a、高度设置：1、委托方法 2、tableView.sectionHeaderHeight (推荐方法1。因为过程中发现方法2 会有tableView起始显示不正常的现象)
+        a、高度设置：1、委托方法 2、tableView.sectionHeaderHeight 
+        (推荐方法1。因为过程中发现方法2 会有tableView起始显示不正常的现象)
+        
         b、view 委托方法
 
 3、tableView header & footer
+
     headerview & footerview 必须手动设置height. 系统会自动设置 width = tableview.width & origin = (0, 0)
-    headerview & footerview 创建时不推荐使用 -newAutoLayoutView (pureLayout方法，详见源码) 这样会显示不正常。但里面的subView可以创建约束关系
+    headerview & footerview 创建时不推荐使用 -newAutoLayoutView 
+      (pureLayout方法，详见源码) 这样会显示不正常。但里面的subView可以创建约束关系
     
 
     
