@@ -18,11 +18,21 @@
         
         b、view 委托方法
 
+    section view默认颜色 = clearColor
+
 3、tableView header & footer
 
     headerview & footerview 必须手动设置height. 系统会自动设置 width = tableview.width & origin = (0, 0)
     headerview & footerview 创建时不推荐使用 -newAutoLayoutView 
       (pureLayout方法，详见源码) 这样会显示不正常。但里面的subView可以创建约束关系
     
-
+4、方法 dequeueReusableCellWithIdentifier: 与 dequeueReusableCellWithIdentifier:forIndexPath: 的区别
     
+    后者调用了一次 -tableView:heightForRowAtIndexPath:获取了正确的高度。打印日志可以看出
+    http://stackoverflow.com/questions/25826383/when-to-use-dequeuereusablecellwithidentifier-vs-dequeuereusablecellwithidentifi
+
+5、关于table view的 selection 
+
+    -reloadData方法 会清除所有的selection
+    UITableViewController 在-viewWillAppear 中实现了清除 selection 可设置属性clearsSelectionOnViewWillAppear 改变
+    详见 苹果开发文档 UITableView & UITableViewController 的 Overview

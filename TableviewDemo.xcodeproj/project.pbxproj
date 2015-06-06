@@ -17,6 +17,10 @@
 		737EED221B21F378004C1F5D /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 737EED1C1B21F378004C1F5D /* NSLayoutConstraint+PureLayout.m */; };
 		737EED251B21F472004C1F5D /* BLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737EED241B21F472004C1F5D /* BLTableViewController.m */; };
 		737EED271B220973004C1F5D /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 737EED261B220973004C1F5D /* README.md */; };
+		8C79FF4C1B22849D0091E478 /* BLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79FF4A1B22849D0091E478 /* BLTableViewCell.m */; };
+		8C79FF4D1B22849D0091E478 /* BLTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C79FF4B1B22849D0091E478 /* BLTableViewCell.xib */; };
+		8C79FF501B228F0C0091E478 /* BLCheckmarkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79FF4F1B228F0C0091E478 /* BLCheckmarkTableViewController.m */; };
+		8C79FF531B2294510091E478 /* BLSelectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79FF521B2294510091E478 /* BLSelectedTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,13 @@
 		737EED231B21F472004C1F5D /* BLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTableViewController.h; sourceTree = "<group>"; };
 		737EED241B21F472004C1F5D /* BLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLTableViewController.m; sourceTree = "<group>"; };
 		737EED261B220973004C1F5D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8C79FF491B22849D0091E478 /* BLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLTableViewCell.h; sourceTree = "<group>"; };
+		8C79FF4A1B22849D0091E478 /* BLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLTableViewCell.m; sourceTree = "<group>"; };
+		8C79FF4B1B22849D0091E478 /* BLTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLTableViewCell.xib; sourceTree = "<group>"; };
+		8C79FF4E1B228F0C0091E478 /* BLCheckmarkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCheckmarkTableViewController.h; sourceTree = "<group>"; };
+		8C79FF4F1B228F0C0091E478 /* BLCheckmarkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCheckmarkTableViewController.m; sourceTree = "<group>"; };
+		8C79FF511B2294510091E478 /* BLSelectedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLSelectedTableViewCell.h; sourceTree = "<group>"; };
+		8C79FF521B2294510091E478 /* BLSelectedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSelectedTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +109,17 @@
 				737EECE91B21F343004C1F5D /* AppDelegate.m */,
 				737EED231B21F472004C1F5D /* BLTableViewController.h */,
 				737EED241B21F472004C1F5D /* BLTableViewController.m */,
+				8C79FF4E1B228F0C0091E478 /* BLCheckmarkTableViewController.h */,
+				8C79FF4F1B228F0C0091E478 /* BLCheckmarkTableViewController.m */,
 				737EECF11B21F343004C1F5D /* Images.xcassets */,
 				737EECF31B21F343004C1F5D /* LaunchScreen.xib */,
 				737EECE41B21F343004C1F5D /* Supporting Files */,
 				737EED261B220973004C1F5D /* README.md */,
+				8C79FF491B22849D0091E478 /* BLTableViewCell.h */,
+				8C79FF4A1B22849D0091E478 /* BLTableViewCell.m */,
+				8C79FF4B1B22849D0091E478 /* BLTableViewCell.xib */,
+				8C79FF511B2294510091E478 /* BLSelectedTableViewCell.h */,
+				8C79FF521B2294510091E478 /* BLSelectedTableViewCell.m */,
 			);
 			path = TableviewDemo;
 			sourceTree = "<group>";
@@ -230,6 +248,7 @@
 			files = (
 				737EECF51B21F343004C1F5D /* LaunchScreen.xib in Resources */,
 				737EECF21B21F343004C1F5D /* Images.xcassets in Resources */,
+				8C79FF4D1B22849D0091E478 /* BLTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +270,11 @@
 				737EECE71B21F343004C1F5D /* main.m in Sources */,
 				737EED251B21F472004C1F5D /* BLTableViewController.m in Sources */,
 				737EED271B220973004C1F5D /* README.md in Sources */,
+				8C79FF501B228F0C0091E478 /* BLCheckmarkTableViewController.m in Sources */,
 				737EED201B21F378004C1F5D /* ALView+PureLayout.m in Sources */,
+				8C79FF4C1B22849D0091E478 /* BLTableViewCell.m in Sources */,
 				737EED211B21F378004C1F5D /* NSArray+PureLayout.m in Sources */,
+				8C79FF531B2294510091E478 /* BLSelectedTableViewCell.m in Sources */,
 				737EED221B21F378004C1F5D /* NSLayoutConstraint+PureLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,9 @@
 
 #import "BLTableViewController.h"
 #import "PureLayout.h"
+#import "BLTableViewCell.h"
 
-static NSString  *const tableViewCellIdentifier = @"UITableViewCell";
+static NSString  *const tableViewCellIdentifier = @"BLTableViewCell";
 
 @interface BLTableViewController ()
 
@@ -34,12 +35,14 @@ static NSString  *const tableViewCellIdentifier = @"UITableViewCell";
     self.tableView.tableHeaderView = self.tableHeaderView;
     self.tableView.tableFooterView = self.tableFooterView;
     
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
+    
     /*** 偶然会显示不正确，未找到原因。建议使用委托中相应的方法 ***/
     //self.tableView.sectionHeaderHeight = 44;
     //self.tableView.sectionFooterHeight = 44;
     
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewCellIdentifier];
+    [self.tableView registerClass:[BLTableViewCell class] forCellReuseIdentifier:tableViewCellIdentifier];
+    //[self.tableView registerNib:[UINib nibWithNibName:@"BLTableViewCell" bundle:nil] forCellReuseIdentifier:tableViewCellIdentifier];
 }
 
 #pragma mark - Table view
@@ -85,21 +88,39 @@ static NSString  *const tableViewCellIdentifier = @"UITableViewCell";
 
 -(NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.row;
+//    自定义的cell,无法缩进
+    return indexPath.row % 1;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 6;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:tableViewCellIdentifier];
+    NSLog(@"method: %s", __func__);
+    NSLog(@"before call dequeueReusableCellWithIdentifier:forIndexPath:");
+//    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:tableViewCellIdentifier forIndexPath:indexPath];
+    BLTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:tableViewCellIdentifier];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", indexPath];
+    /***
+     方法 dequeueReusableCellWithIdentifier: 与 dequeueReusableCellWithIdentifier:forIndexPath: 的区别在于 后者调用了一次 -tableView:heightForRowAtIndexPath:获取了正确的高度。打印日志可以看出
+     http://stackoverflow.com/questions/25826383/when-to-use-dequeuereusablecellwithidentifier-vs-dequeuereusablecellwithidentifi
+     ***/
+    NSLog(@"after call dequeueReusableCellWithIdentifier:forIndexPath:");
+    
+    cell.titleLabel.text = [NSString stringWithFormat:@"%ld:%ld", indexPath.section, indexPath.row];
+    cell.inputTextField.placeholder = @"输入";
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"method: %s", __func__);
+    return 44;
 }
 
 

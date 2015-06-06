@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BLTableViewController.h"
+#import "BLCheckmarkTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,10 +21,23 @@
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    
     BLTableViewController *tableViewController = [[BLTableViewController alloc]initWithStyle:UITableViewStylePlain];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:tableViewController];
     
-    self.window.rootViewController = nav;
+    BLCheckmarkTableViewController *checkmarkViewController = [[BLCheckmarkTableViewController alloc]init];
+    UINavigationController *anotherNav = [[UINavigationController alloc]initWithRootViewController:checkmarkViewController];
+    
+    UITabBarController *tabBarViewController = [[UITabBarController alloc]init];
+    tabBarViewController.viewControllers = @[nav, anotherNav];
+    
+    
+    UITabBarItem *firstItem = [tabBarViewController.tabBar.items firstObject];
+    firstItem.title = @"Table 1";
+    UITabBarItem *secondItem = [tabBarViewController.tabBar.items lastObject];
+    secondItem.title = @"Table 2";
+    
+    self.window.rootViewController = tabBarViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }
