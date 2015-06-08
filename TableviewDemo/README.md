@@ -36,3 +36,20 @@
     -reloadData方法 会清除所有的selection
     UITableViewController 在-viewWillAppear 中实现了清除 selection 可设置属性clearsSelectionOnViewWillAppear 改变
     详见 苹果开发文档 UITableView & UITableViewController 的 Overview
+
+6、关于 cell 的分割线 separator line
+
+    iOS7.x 与 iOS8.x 对分割线的操作不同
+    iOS7.x 
+        table view -setSeparatorInset: 即可
+    iOS8.x
+        cell        -setSeparatorInset: & -setLayoutMargins    定制的cell中统一设置 或者 更灵活的 -tableView:willDisplayCell:forRowAtIndexPath:
+        table view  -setSeparatorInset: & -setLayoutMargins    推荐在 -viewDidLayoutSubviews: 中调用 
+    
+    #warning调用了 [self.tableView setLayoutMargins:UIEdgeInsetsZero], cell的 -setSeparatorInset才能正确的影响cell的左右分割线
+    
+    颜色 table view -separatorColor:
+
+
+
+

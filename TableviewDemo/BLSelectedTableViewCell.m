@@ -14,7 +14,16 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        //iOS 7.x 左分割线左对齐到屏幕边缘
+        if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+            [self setSeparatorInset:UIEdgeInsetsZero];
+        }
+        //iOS 8.x 左分割线左对齐到屏幕边缘
+        if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+            [self setLayoutMargins:UIEdgeInsetsZero];
+        }
     }
     return self;
 }

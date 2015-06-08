@@ -27,6 +27,21 @@ static NSString *const tableViewCellIdentifier = @"BLSelectedTableViewCell";
     self.tableView.allowsSelection = YES;
     [self.tableView registerClass:[BLSelectedTableViewCell class] forCellReuseIdentifier:tableViewCellIdentifier];
     self.clearsSelectionOnViewWillAppear = NO;
+    self.tableView.separatorColor = [UIColor purpleColor];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    #warning 在viewDidLoad中调用下列方法则不管用
+    //分割线对齐屏幕边缘 方法缺一不可
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 #pragma mark - Table view 
@@ -45,6 +60,24 @@ static NSString *const tableViewCellIdentifier = @"BLSelectedTableViewCell";
 {
     UITableViewCell *newSelectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
     newSelectedCell.selected = YES;
+}
+
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self setCell:cell SeparatorInset:UIEdgeInsetsMake(0, indexPath.section * 10, 0, indexPath.section * 10)];
+}
+
+#pragma mark - Private method
+
+-(void)setCell:(UITableViewCell *)cell SeparatorInset:(UIEdgeInsets)inset
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:inset];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:inset];
+    }
 }
 
 @end
