@@ -65,7 +65,15 @@ static NSString *const tableViewCellIdentifier = @"BLSelectedTableViewCell";
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self setCell:cell SeparatorInset:UIEdgeInsetsMake(0, indexPath.section * 10, 0, indexPath.section * 10)];
+    if (indexPath.section == 2) {
+        
+        [self setCell:cell SeparatorInset:UIEdgeInsetsMake(0, 0, 0, cell.bounds.size.width)];
+        cell.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
+        
+    }else{
+        [self setCell:cell SeparatorInset:UIEdgeInsetsZero];
+    }
+    
 }
 
 #pragma mark - Private method

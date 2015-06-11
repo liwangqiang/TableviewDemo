@@ -50,6 +50,10 @@
     
     颜色 table view -separatorColor:
 
+    UITableView 的style不同 则对 separator line 的显示会有影响
+        如果是 group style, table 会自动在section两边加上一条顶起屏幕边缘的separator line, 而不管你的cell separator line 设置
+        如果是 plain sytle, 则不会加这条线
+
 
 
 

@@ -25,7 +25,7 @@
     BLTableViewController *tableViewController = [[BLTableViewController alloc]initWithStyle:UITableViewStylePlain];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:tableViewController];
     
-    BLCheckmarkTableViewController *checkmarkViewController = [[BLCheckmarkTableViewController alloc]init];
+    BLCheckmarkTableViewController *checkmarkViewController = [[BLCheckmarkTableViewController alloc]initWithStyle:UITableViewStyleGrouped];
     UINavigationController *anotherNav = [[UINavigationController alloc]initWithRootViewController:checkmarkViewController];
     
     UITabBarController *tabBarViewController = [[UITabBarController alloc]init];
