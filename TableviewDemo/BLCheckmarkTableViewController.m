@@ -51,15 +51,13 @@ static NSString *const tableViewCellIdentifier = @"BLSelectedTableViewCell";
     BLSelectedTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:tableViewCellIdentifier];
     cell.textLabel.text = [NSString stringWithFormat:@"%ld : %ld", indexPath.section, indexPath.row];
     
-    cell.selected = NO;
-    
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *newSelectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
-    newSelectedCell.selected = YES;
+
+    
 }
 
 

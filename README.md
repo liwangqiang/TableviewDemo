@@ -33,7 +33,7 @@
 
 5、关于table view的 selection 
 
-    -reloadData方法 会清除所有的selection
+    -reloadData方法 会清除所有的维护的selection,即使在delegate方法 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 中设置selected，也被清除，可在 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath 中想办法
     UITableViewController 在-viewWillAppear 中实现了清除 selection 可设置属性clearsSelectionOnViewWillAppear 改变
     详见 苹果开发文档 UITableView & UITableViewController 的 Overview
 
